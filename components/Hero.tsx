@@ -1,7 +1,5 @@
 "use client";
 
-import { Stats } from "fs";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
@@ -13,17 +11,43 @@ export default function Hero() {
       min-h-screen
       overflow-hidden
       bg-[#050816]
-      pt-32
+      pt-24
+      md:pt-32
       pb-20
     "
     >
       {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/20 blur-[120px]" />
+      <div
+        className="
+        absolute
+        top-0
+        left-0
+        w-[300px]
+        md:w-[500px]
+        h-[300px]
+        md:h-[500px]
+        bg-blue-600/20
+        blur-[120px]
+        pointer-events-none
+      "
+      />
 
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-pink-600/20 blur-[120px]" />
+      <div
+        className="
+        absolute
+        bottom-0
+        right-0
+        w-[300px]
+        md:w-[500px]
+        h-[300px]
+        md:h-[500px]
+        bg-pink-600/20
+        blur-[120px]
+        pointer-events-none
+      "
+      />
 
       <div className="max-w-7xl mx-auto px-6">
-
         <div
           className="
           grid
@@ -32,17 +56,18 @@ export default function Hero() {
           items-center
         "
         >
-
-          {/* LEFT */}
-          <div>
+          {/* LEFT SIDE */}
+          <div className="text-center lg:text-left">
 
             <p
               className="
               text-blue-400
               uppercase
-              tracking-[6px]
+              tracking-[4px]
+              md:tracking-[6px]
               mb-6
-              text-sm
+              text-xs
+              md:text-sm
             "
             >
               Premium Agency
@@ -51,7 +76,7 @@ export default function Hero() {
             <h1
               className="
               text-4xl
-              md:text-5xl
+              sm:text-5xl
               lg:text-6xl
               font-black
               leading-tight
@@ -63,7 +88,7 @@ export default function Hero() {
 
               <span
                 className="
-                bg-linear-to-r
+                bg-gradient-to-r
                 from-blue-500
                 via-purple-500
                 to-pink-500
@@ -78,10 +103,13 @@ export default function Hero() {
             <p
               className="
               text-gray-400
-              text-xl
-              leading-9
+              text-lg
+              md:text-xl
+              leading-8
               mt-8
               max-w-2xl
+              mx-auto
+              lg:mx-0
             "
             >
               We create modern websites that attract clients and
@@ -89,17 +117,31 @@ export default function Hero() {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-6 mt-12">
-
+            <div
+              className="
+              relative
+              z-20
+              flex
+              flex-col
+              sm:flex-row
+              items-center
+              lg:items-start
+              gap-6
+              mt-12
+            "
+            >
               <a
                 href="#contact"
                 className="
+                w-full
+                sm:w-auto
+                text-center
                 px-10
-                py-5
+                py-4
                 rounded-2xl
                 text-md
                 font-semibold
-                bg-linear-to-r
+                bg-gradient-to-r
                 from-blue-600
                 to-purple-600
                 hover:scale-105
@@ -110,24 +152,38 @@ export default function Hero() {
                 Get Started
               </a>
 
-             <Link href="/work">
-                 <button
-                   className="
-                   px-10 py-4
-                   rounded-full
-                   border border-white/20
-                   text-white
-                   hover:bg-white hover:text-black
-                   transition duration-300
-                   "
-                  >
-                    View Projects
-                 </button>
-             </Link>
-
+              <Link href="/work" className="w-full sm:w-auto">
+                <button
+                  className="
+                  w-full
+                  px-10
+                  py-4
+                  rounded-full
+                  border
+                  border-white/20
+                  text-white
+                  hover:bg-white
+                  hover:text-black
+                  transition
+                  duration-300
+                "
+                >
+                  View Projects
+                </button>
+              </Link>
             </div>
-            <div className="flex flex-wrap gap-12 mt-16">
 
+            {/* Stats */}
+            <div
+              className="
+              flex
+              flex-wrap
+              justify-center
+              lg:justify-start
+              gap-10
+              mt-16
+            "
+            >
               <div>
                 <h2 className="text-2xl font-bold text-blue-500">
                   10+
@@ -157,62 +213,79 @@ export default function Hero() {
                   Satisfaction
                 </p>
               </div>
-
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative flex justify-center items-center">
+          {/* RIGHT SIDE */}
+          <div
+            className="
+            relative
+            flex
+            justify-center
+            items-center
+            mt-10
+            lg:mt-0
+          "
+          >
+            {/* Glow */}
+            <div
+              className="
+              absolute
+              w-[280px]
+              md:w-[420px]
+              h-[280px]
+              md:h-[420px]
+              bg-gradient-to-r
+              from-blue-500/30
+              to-pink-500/30
+              blur-[120px]
+              rounded-full
+              animate-pulse
+              pointer-events-none
+            "
+            ></div>
 
-  {/* Glow Background */}
-  <div className="
-    absolute
-    w-[420px]
-    h-[420px]
-    bg-gradient-to-r
-    from-blue-500/30
-    to-pink-500/30
-    blur-[120px]
-    rounded-full
-    animate-pulse
-  "></div>
+            {/* Main Image */}
+            <div
+              className="
+              relative
+              overflow-hidden
+              rounded-[30px]
+              border
+              border-white/10
+              shadow-[0_0_50px_rgba(59,130,246,0.35)]
+              backdrop-blur-xl
+            "
+            >
+              <img
+                src="/hero1.png"
+                alt="Hero"
+                className="
+                w-full
+                max-w-[650px]
+                h-auto
+                object-cover
+                rounded-[30px]
+                hover:scale-105
+                transition
+                duration-700
+              "
+              />
 
-  {/* Main Image */}
-  <div className="
-    relative
-    overflow-hidden
-    rounded-[35px]
-    border border-white/10
-    shadow-[0_0_50px_rgba(59,130,246,0.35)]
-    backdrop-blur-xl
-  ">
-
-    <img
-      src="/hero1.png"
-      alt="Hero"
-      className="
-        w-full
-        max-w-162.5
-        h-112.5
-        object-cover
-        rounded-[50px]
-        hover:scale-105
-        transition
-        duration-700
-      "
-    />
-
-    {/* Overlay */}
-      <div className="
-        absolute inset-0
-        bg-linear-to-t
-       from-black/60
-       via-transparent
-       to-transparent"
-       >
-        </div>
-        </div>
-        </div>
+              {/* Overlay */}
+              <div
+                className="
+                absolute
+                inset-0
+                bg-gradient-to-t
+                from-black/60
+                via-transparent
+                to-transparent
+                pointer-events-none
+              "
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
